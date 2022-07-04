@@ -32,7 +32,7 @@ html {
   --contacts-text-color-adress: #ffffff;
   --primary-bgc-color-button: #2196f3;
   --secondary-bgc-color-button: #f5f4fa;
-  /* Text color posotion-elements (works) */
+  /* Text color position-elements (works, cards-projects) */
   --primary-text-color-pos-el: #FFFFFF;
   /* Background colors */
   --head: #ffffff;
@@ -58,6 +58,10 @@ html {
 
   /* Modal window */
   --bgr-color-modal-window: #FFFFFF;
+
+  /* Animation */
+  --duration: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* цвет основного текста #212121 */
@@ -151,26 +155,28 @@ header {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+
+  transition-property: color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--logo-text-color);
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link.current {
   color: var(--primary-text-color);
+
+  transition-property: color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .site-nav .link.current:hover,
 .site-nav .link.current:focus {
   color: var(--logo-text-color);
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav {
@@ -207,14 +213,6 @@ header {
   background-color: var(--primary-bgr-color-linial);
 }
 
-/*:hover.link.current::after,
-:focus.link.current::after {
-  background-color: var(--primary-bgr-color-linial);
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}*/
-
 .link-list .link {
   display: flex;
 
@@ -226,6 +224,10 @@ header {
   letter-spacing: 0.02em;
   text-decoration: none;
   align-items: center;
+
+  transition-property: color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .link-list .link .icon {
@@ -238,9 +240,6 @@ header {
 .link-list .link:hover,
 .link-list .link:focus {
   color: var(--logo-text-color);
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-list {
@@ -301,6 +300,10 @@ header {
 /*  Кнопка "Заказать услугу" */
 
 .button.primary {
+  transition-property: color, background-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+
   border-radius: 4px;
   border: 1px solid transparent;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -323,9 +326,6 @@ header {
 .button.primary:focus {
   background-color: var(--secondary-bgc-color-button);
   color: var(--secondary-text-button);
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button {
@@ -343,6 +343,9 @@ header {
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1); 
  
 }
 
@@ -351,11 +354,14 @@ header {
   pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   min-width: 528px;
   min-height: 581px;
@@ -365,6 +371,10 @@ header {
   background: #FFFFFF;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+
+  transform: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-btn {
@@ -600,6 +610,10 @@ header {
 }
 
 .link-icon {
+  transition-property: color, background-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -613,9 +627,6 @@ header {
 .link-icon.black-icon:focus{
   background-color: var(--acent-color-icons);
   color: #ffffff;
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-icon .pic{
@@ -625,8 +636,12 @@ header {
 }
 
 .link-icon.black-icon {
-background-color: rgba(255, 255, 255, 0.1);
-color: #ffffff;
+  transition-property: color, background-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 /* Clients */
@@ -662,6 +677,10 @@ color: #ffffff;
 }
 
 .clients-icon{
+  transition-property: fill, border-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -672,17 +691,12 @@ color: #ffffff;
   border: 1px solid #afb1b8;
   border-radius: 4px;
   fill: var(--color-icons-company);
-
 }
-
 
 .clients-icon:focus,
 .clients-icon:hover {
   fill: #2196f3;
   border-color: #2196f3;
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*  Logo Footer */
@@ -710,6 +724,10 @@ color: #ffffff;
 /*  Footer */
 
 .footer-list .link-adress {
+  transition-property: color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+
   color: var(--contacts-link-color);
 
   font-style: normal;
@@ -722,12 +740,13 @@ color: #ffffff;
 .footer-list .link-adress:hover,
 .footer-list .link-adress:focus {
   color: var(--accent-text-color);
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-list .link {
+  transition-property: color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+  
   color: var(--contacts-text-color);
 
   font-style: normal;
@@ -740,9 +759,6 @@ color: #ffffff;
 .footer-list .link:hover,
 .footer-list .link:focus {
   color: var(--accent-text-color);
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-list {
@@ -803,6 +819,10 @@ color: #ffffff;
 /*  Кнопки фильтра портфолио */
 
 .button-portfolio {
+  transition-property: color, background-color, box-shadow;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+
   padding: 6px 22px;
   background-color: var(--secondary-bgc-color-button);
   color: var(--secondary-text-button);
@@ -825,14 +845,11 @@ color: #ffffff;
 .button-portfolio:hover,
 .button-portfolio:focus,
 .button-portfolio.active {
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
   background-color: var(--primary-bgc-color-button);
   color: var(--primary-text-button);
 
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
+   0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .list.buttons {
@@ -851,6 +868,41 @@ color: #ffffff;
 }
 
 /* Projects */
+
+.cards-overlay {
+  overflow: hidden;
+  position: relative;
+}
+
+.cards-overlay-text {
+  transform: translateY(101%);
+  transition: var(--duration);
+  transition-timing-function: var(--timing-function);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 370px;
+  height: 294px;
+
+  margin: 0px;
+  padding: 63px 24px 63px 24px;
+
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  text-align: left;
+ 
+  color: var(--primary-text-color-pos-el);
+  background: rgba(33, 150, 243, 0.9);
+}
+
+.cards-overlay:hover .cards-overlay-text {
+  transform: translateY(0);
+}
 
 .section.filters {
   padding-top: 94px;
@@ -903,12 +955,21 @@ img {
   display: block;
 }
 
+.item-cards {
+  transition-property: box-shadow;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+}
+
+.item.active {
+  transition-property: box-shadow;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+  }
+
 .item-cards:hover,
 .item-cards:focus,
 .item.active {
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
