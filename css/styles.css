@@ -490,17 +490,21 @@ header {
 .overlay-text {
   width: 370px;
   height: 70px;
-  padding: 27px 0px 27px 0px;
+  
 
   position: absolute;
-  Bottom: 0;
-  Right: 0;
+  bottom: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   font-family: var(--main-font);
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
-  text-align: center;
+  
   letter-spacing: 0.03em;
   text-transform: uppercase;
   
@@ -585,6 +589,7 @@ header {
 
 .profession {
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .team-icons {
@@ -596,7 +601,6 @@ header {
   align-items: center;
   justify-content: center;
   margin-top: 16px;
-  margin-bottom: 30px;
 
   gap: 10px;
 
@@ -900,7 +904,7 @@ header {
   background: rgba(33, 150, 243, 0.9);
 }
 
-.cards-overlay:hover .cards-overlay-text {
+.item-cards:hover .cards-overlay-text {
   transform: translateY(0);
 }
 
